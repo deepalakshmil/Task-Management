@@ -1,0 +1,58 @@
+Final Project Structure — Task Management App
+
+Task-Management/
+├── .env                       # Auth0 credentials (VITE_AUTH0_DOMAIN, VITE_AUTH0_CLIENT_ID)
+├── package.json
+├── tsconfig.json
+├── vite.config.ts             # if using Vite
+├── README.md
+│
+└── src/
+    ├── main.css               # global styles
+    ├── index.tsx              # app entry point
+    ├── App.tsx                # root component
+    ├── routes.tsx             # main routing file
+    │
+    ├── auth/
+    │   └── Auth0ProviderWithNavigate.tsx   # wraps app with Auth0 and router
+    │
+    ├── components/
+    │   ├── Navbar.tsx                      # top navigation bar with login/logout
+    │   ├── TaskForm.tsx                    # add/edit form for tasks
+    │   └── TaskList.tsx                    # displays all tasks on Dashboard
+    │
+    ├── context/
+    │   └── TaskContext.tsx                 # global task state provider / defines only createContext
+    │   └── TaskProvider.tsx                # defines only the provider component
+    ├── hooks/
+    │   ├── useLocalStorage.ts              # persistent state hook
+    │   ├── useTasks.ts                     # access context and CRUD task functions
+    │   └── useForm.ts                      # reusable input form handler
+    │
+    ├── pages/
+    │   ├── Dashboard.tsx                   # main page showing TaskList
+    │   ├── TaskDetails.tsx                 # shows full task info
+    │   ├── CreateTask.tsx                  # page to add new tasks
+    │   ├── EditTask.tsx                    # page to edit existing tasks
+    │   ├── Login.tsx                       # Auth0 login landing page
+    │   └── Profile.tsx                     # shows logged-in user info
+    │
+    ├── types/
+    │   ├── task.ts                         # Task interface
+    │   └── auth.ts                         # Auth user interface
+    │
+    └── utils/
+        └── validation.ts                   # input validation logic for tasks
+
+How These Folders Work Together
+
+Folder	            Purpose
+auth/	        Handles Auth0 authentication setup with navigation support.
+components/	    Reusable UI parts (Navbar, TaskList, TaskForm).
+context/	    Global app state using React Context API.
+hooks/	        Custom hooks for local storage, tasks, and form management.
+pages/	        Full-page views for each route (Dashboard, TaskDetails, etc.).
+types/	        TypeScript type definitions to ensure strong typing and maintainability.
+utils/	        Reusable helpers (e.g., form validation).
+routes.tsx	    Centralized route definitions using React Router v6 and Auth0 protection.
+App.tsx	        Combines everything — providers, routes, and layout.
