@@ -8,7 +8,7 @@ interface Auth0ProviderWithNavigateProps {
 
 /**
  * Auth0ProviderWithNavigate
- * ------------------------------------
+ * ----------------------------------------------
  * This component wraps the Auth0Provider from @auth0/auth0-react
  * and integrates React Router's navigation so that
  * after login/logout, the app redirects properly.
@@ -26,7 +26,7 @@ const Auth0ProviderWithNavigate: React.FC<Auth0ProviderWithNavigateProps> = ({
 
   /**
    * handleRedirectCallback
-   * -----------------------
+   * ---------------------------------------
    * Runs after login — Auth0 returns to your app
    * and this function redirects the user to their original page.
    */
